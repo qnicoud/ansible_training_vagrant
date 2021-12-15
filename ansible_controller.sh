@@ -1,6 +1,6 @@
 # Update packages and install usefull ones
 apt-get update
-apt-get install -y sudo vim mlocate curl python3-pip
+apt-get install -y sudo git vim mlocate curl python3-pip
 # Add vagrant to the sudoers
 usermod -aG sudo vagrant
 
