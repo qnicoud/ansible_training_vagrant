@@ -6,8 +6,6 @@
 
 Vagrant.configure("2") do |config|
   
-  #config.vm.provision "shell", path: "ansible_all_vms.sh"
-
   (1..2).each do |i|
     config.vm.define "managed-#{i}" do |managed|
       managed.vm.provider "virtualbox" do |vb|
@@ -16,7 +14,7 @@ Vagrant.configure("2") do |config|
       end
       managed.vm.network "private_network", ip: "192.168.56.12#{i}"
       managed.vm.hostname = "managed#{i}"
-      managed.vm.box = "debian/bullseye64"
+      managed.vm.box = "ubuntu/focal64"
     end
   end
   
@@ -31,6 +29,6 @@ Vagrant.configure("2") do |config|
 
     controller.vm.network "private_network", ip: "192.168.56.120"
     controller.vm.hostname = "controller"
-    controller.vm.box = "debian/bullseye64"
+    controller.vm.box = "ubuntu/focal64"
   end
 end
